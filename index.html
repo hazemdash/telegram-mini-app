@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mini App - معاهد أبو قير العليا</title>
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background: url('https://your-logo-url.com/logo.jpg') no-repeat center center;
+            background-size: cover;
+            color: white;
+        }
+        .container {
+            padding: 20px;
+            backdrop-filter: blur(5px);
+        }
+        .task {
+            background: rgba(0, 0, 0, 0.7);
+            padding: 15px;
+            margin: 10px;
+            border-radius: 10px;
+            font-weight: bold;
+            font-size: 18px;
+        }
+        button {
+            background: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>مرحبًا بك في Mini App</h1>
+        <p>أكمل المهام واحصل على النقاط!</p>
+
+        <div class="task">
+            <h3>⭐ نتيجة نظم ومعلومات شعبة إنجليزي لائحة قديمة ⭐</h3>
+            <h3>🛑 المهمة 1: اشترك في القناة</h3>
+            <p>50 نقطة</p>
+            <button onclick="subscribe()">اشتراك</button>
+        </div>
+
+        <div class="task">
+            <h3>⭐ نتيجة نظم ومعلومات شعبة إنجليزي لائحة قديمة ⭐</h3>
+            <h3>📛 المهمة 2: أدخل اسمك</h3>
+            <p>50 نقطة</p>
+            <input type="text" id="nameInput" placeholder="أدخل اسمك">
+            <button onclick="submitName()">إرسال</button>
+        </div>
+
+        <div class="task">
+            <h3>⭐ نتيجة نظم ومعلومات شعبة إنجليزي لائحة قديمة ⭐</h3>
+            <h3>🔢 المهمة 3: أدخل رقم الجلوس</h3>
+            <p>50 نقطة</p>
+            <input type="number" id="rollInput" placeholder="أدخل رقم الجلوس">
+            <button onclick="submitRoll()">إرسال</button>
+        </div>
+    </div>
+
+    <script>
+        let tg = window.Telegram.WebApp;
+        tg.expand();
+
+        function subscribe() {
+            window.open("https://t.me/YOUR_CHANNEL", "_blank");
+            alert("تم الاشتراك! سيتم التحقق تلقائيًا");
+        }
+
+        function submitName() {
+            let name = document.getElementById("nameInput").value;
+            if (name) {
+                alert("تم تسجيل اسمك: " + name);
+            } else {
+                alert("الرجاء إدخال اسمك!");
+            }
+        }
+
+        function submitRoll() {
+            let roll = document.getElementById("rollInput").value;
+            if (roll) {
+                alert("تم تسجيل رقم جلوسك: " + roll);
+            } else {
+                alert("الرجاء إدخال رقم الجلوس!");
+            }
+        }
+
+        function shareApp() {
+            tg.showPopup({message: "ونبيس عمك 😂 وتم إضافة مليون جنيه في حسابك!"});
+        }
+    </script>
+</body>
+</html>
